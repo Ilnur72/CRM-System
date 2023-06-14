@@ -1,0 +1,30 @@
+POST http://localhost:8080/groups
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+Content-Type: application/json
+
+{
+  "name": "N-72",
+  "teacher_id": 2,
+  "assistent_teacher_id": 3
+}
+
+###
+GET http://localhost:8080/groups/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+
+###
+PATCH http://localhost:8080/groups/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+Content-Type: application/json
+
+{
+  "name": "N-72",
+  "teacher_id": 6
+}
+###
+DELETE  http://localhost:8080/groups/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+
+###
+GET http://localhost:8080/groups/:1/students
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
