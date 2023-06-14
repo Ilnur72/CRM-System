@@ -21,5 +21,5 @@ router.delete('/groups/:id', isLoggedIn, hasRole(['admin', 'super_admin']), cont
 //groups_students
 router.get('/groups/:id/students', isLoggedIn, hasRole(['admin', 'super_admin']), controllers.getGroupsStudents)
 router.post('/groups/:id/students/:student_id', isLoggedIn, hasRole(['admin', 'super_admin']), genValidator(schemas.postGroupsStudents), controllers.postGoupsStudents)
-
+router.delete('/groups/:id/students/:student_id', isLoggedIn, hasRole(['admin', 'super_admin']), controllers.deleteGroupsStudents)
 module.exports = router;

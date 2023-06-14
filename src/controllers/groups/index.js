@@ -85,6 +85,10 @@ const getGroups = async (req, res) => {
   }
 };
 
+/**
+ * @param {express.Request} req
+ * @param {express.Response} res
+ */
 const showGroups = async (req, res) => {
   try {
     const { id } = req.params;
@@ -121,6 +125,10 @@ const showGroups = async (req, res) => {
   }
 };
 
+/**
+ * @param {express.Request} req
+ * @param {express.Response} res
+ */
 const updateGroups = async (req, res) => {
   try {
     const { ...changes } = req.body;
@@ -149,6 +157,10 @@ const updateGroups = async (req, res) => {
   }
 };
 
+/**
+ * @param {express.Request} req
+ * @param {express.Response} res
+ */
 const deleteGroups = async (req, res) => {
   try {
     const { id } = req.params;
@@ -176,14 +188,18 @@ const deleteGroups = async (req, res) => {
 };
 
 //groups_students uchun api
+/**
+ * @param {express.Request} req
+ * @param {express.Response} res
+ */
 const postGoupsStudents = async (req, res) => {
   try {
-    const { student_id, group_id } = req.body;
+    const { id:group_id, student_id } = req.params;
 
     const existing = await db("groups_students")
-      .where({ student_id: student_id })
-      .orWhere({ group_id: group_id });
-    if (existing) {
+      .where({ "student_id": student_id })
+      .andWhere({ "group_id": group_id });
+    if (existing.length) {
       return res.status(400).json({ message: "Bu student guruhda mavjud" });
     }
 
@@ -198,17 +214,17 @@ const postGoupsStudents = async (req, res) => {
   }
 };
 
+/**
+ * @param {express.Request} req
+ * @param {express.Response} res
+ */
 const getGroupsStudents = async (req, res) => {
   try {
-    const { id, student_id } = req.body;
-    // const result = await db("groups_students gs")
-    //   .leftJoin("students s", "s.id", "gs.student_id")
-    //   .leftJoin("groups g", "g.id", "gs.group_id")
-    //   .select("g.id","g.name", db.raw("CONCAT(s.first_name, ' ', s.last_name"));
+    const { id } = req.params;
     const result = await db("groups_students as gs")
     .leftJoin("students as s", "s.id", "gs.student_id")
     .leftJoin("groups as g", "g.id", "gs.group_id")
-    .select("g.id", "g.name", db.raw("CONCAT(s.first_name, ' ', s.last_name) as full_name"))
+    .select("g.id as group_id", "s.id as student_id", "g.name as group_name", db.raw("CONCAT(s.first_name, ' ', s.last_name) as full_name")).where('g.id', id)
     res.status(200).json(result);
   } catch (error) {
     res.status(500).json({
@@ -216,6 +232,27 @@ const getGroupsStudents = async (req, res) => {
     });
   }
 };
+
+/**
+ * @param {express.Request} req
+ * @param {express.Response} res
+ */
+const deleteGroupsStudents = async (req, res) => {
+  try {
+    const { id, student_id } = req.params
+    const existing = await db("groups_students").where({"group_id": id }).orWhere({"student_id": student_id}).first();
+    if(!existing){
+      return res.status(404).json({message: `${id} idli student topilmadi.`})
+    }
+
+    const deleted = await db('groups_students').where({"group_id": id }).andWhere({"student_id": student_id}).delete().returning('*')
+    res.status(200).json({deleted: deleted[0]})
+  } catch (error) {
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+}
 
 module.exports = {
   postGroup,
@@ -225,4 +262,5 @@ module.exports = {
   deleteGroups,
   postGoupsStudents,
   getGroupsStudents,
+  deleteGroupsStudents
 };

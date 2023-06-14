@@ -1,0 +1,24 @@
+GET http://localhost:8080/directions
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+
+###
+POST http://localhost:8080/directions
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+Content-Type: application/json
+
+{
+    "name": "Dizayn"
+}
+
+###
+PATCH http://localhost:8080/directions/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+Content-Type: application/json
+
+{
+    "name": "Dizayn"
+}
+
+### 
+DELETE http://localhost:8080/directions/5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ

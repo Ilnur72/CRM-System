@@ -25,6 +25,16 @@ Content-Type: application/json
 DELETE  http://localhost:8080/groups/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
 
+
+//groups_students
 ###
-GET http://localhost:8080/groups/:1/students
+POST http://localhost:8080/groups/1/students/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+
+###
+GET http://localhost:8080/groups/1/students
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+
+###
+DELETE http://localhost:8080/groups/1/students/2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
