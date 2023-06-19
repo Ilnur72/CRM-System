@@ -1,25 +1,26 @@
 const express = require('express');
 const genValidator = require('../shared/validator');
-const controllers = require('../controllers/groups');
 const { isLoggedIn, hasRole } = require('../shared/auth');
 const schemas = require('../controllers/groups/schemas');
+const {postGroup, getGroups, showGroups, updateGroups, deleteGroups, addStudent, removeStudent } = require('../controllers/groups')
 
 const router = express.Router();
 
-router.post(
-  '/groups',
-  isLoggedIn,
-  hasRole(['admin', 'super_admin']),
-  genValidator(schemas.postGroupSchema),
-  controllers.postGroup
-);
-router.get('/groups', isLoggedIn, hasRole(['admin', 'super_admin']), controllers.getGroups)
-router.get('/groups/:id', isLoggedIn, hasRole(['admin', 'super_admin']), controllers.showGroups)
-router.patch('/groups/:id', isLoggedIn, hasRole(['admin', 'super_admin']),genValidator(schemas.patchGroupSchema), controllers.updateGroups)
-router.delete('/groups/:id', isLoggedIn, hasRole(['admin', 'super_admin']), controllers.deleteGroups)
+const mPostGroup = [isLoggedIn, hasRole(['admin', 'super_admin']), genValidator(schemas.postGroupSchema)]
+const mGetGroups = [isLoggedIn]
+const mShowGroup = [isLoggedIn]
+const mPatchGroup = [isLoggedIn, hasRole(['admin', 'super_admin']),genValidator(schemas.patchGroupSchema)]
+const mDeleteGroup = [isLoggedIn, hasRole(['admin', 'super_admin'])]
+const mAddStudent = [isLoggedIn, hasRole(['admin', 'super_admin']), genValidator(schemas.postGroupsStudents)]
+const mRemoveStudent = [isLoggedIn, hasRole(['admin', 'super_admin'])]
+
+router.post('/groups', mPostGroup, postGroup);
+router.get('/groups', mGetGroups, getGroups)
+router.get('/groups/:id', mShowGroup, showGroups)
+router.patch('/groups/:id', mPatchGroup, updateGroups)
+router.delete('/groups/:id', mDeleteGroup, deleteGroups)
 
 //groups_students
-router.get('/groups/:id/students', isLoggedIn, hasRole(['admin', 'super_admin']), controllers.getGroupsStudents)
-router.post('/groups/:id/students/:student_id', isLoggedIn, hasRole(['admin', 'super_admin']), genValidator(schemas.postGroupsStudents), controllers.postGoupsStudents)
-router.delete('/groups/:id/students/:student_id', isLoggedIn, hasRole(['admin', 'super_admin']), controllers.deleteGroupsStudents)
+router.post('/groups/:id/students/:student_id', mAddStudent, addStudent)
+router.delete('/groups/:id/students/:student_id', mRemoveStudent, removeStudent)
 module.exports = router;
