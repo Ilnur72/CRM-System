@@ -6,14 +6,52 @@ const db = require('../../db')
  * @param {express.Request} req 
  * @param {express.Response} res 
  */
+const postStudent = async (req, res) => {
+    try {
+        const { first_name, last_name } = req.body
+
+        const result = await db('students')
+            .insert({
+                first_name,
+                last_name
+            })
+            .returning('*')
+
+        res.status(201).json({
+            student: result[0]
+        })
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        })
+    }
+}
+
+/**
+ * 
+ * @param {express.Request} req 
+ * @param {express.Response} res 
+ */
 const getStudents = async (req, res) => {
     try {
+        const { q, offset=1, limit=5, sort_by='id', sort_order='desc' } = req.query
         const dbQuery = db('students').select('id', 'first_name', 'last_name');
+
+        if(q){
+            dbQuery.andWhereILike('first_name', `%${q}%`).orWhereILike('last_name', `%${q}%`)
+        }
+        const total = await dbQuery.clone().count().groupBy('id');
+        dbQuery.orderBy(sort_by, sort_order).limit(limit).offset((offset-1) * limit);
 
         const students = await dbQuery
 
         res.status(200).json({
-            students
+            students,
+            pageInfo: {
+                total: total.length,
+                offset,
+                limit
+            }
         })
     } catch (error) {
         res.status(500).json({
@@ -117,31 +155,6 @@ const deleteStudent = async (req, res) => {
     }
 }
 
-/**
- * 
- * @param {express.Request} req 
- * @param {express.Response} res 
- */
-const postStudent = async (req, res) => {
-    try {
-        const { first_name, last_name } = req.body
-
-        const result = await db('students')
-            .insert({
-                first_name,
-                last_name
-            })
-            .returning('*')
-
-        res.status(201).json({
-            student: result[0]
-        })
-    } catch (error) {
-        res.status(500).json({
-            error: error.message
-        })
-    }
-}
 
 
 module.exports = {
