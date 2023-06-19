@@ -1,18 +1,18 @@
 ### List Students
-GET http://localhost:3001/students
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NTY4NDExLCJleHAiOjE2ODY2NTQ4MTF9.0Ld1oAXHUQVsn-6Cf8_shYXTKLpDQ3zAOGVt30z4LnE
+GET http://localhost:8080/students/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2OTAwNDAxLCJleHAiOjE2ODY5ODY4MDF9.z-Z1Q7QYUmtA5Xpf4wr5u3l5v3RkJOqPFXCnCMCrdwI
 
 
 
 ### Show single students
-GET http://localhost:3001/students/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NTY4NDExLCJleHAiOjE2ODY2NTQ4MTF9.0Ld1oAXHUQVsn-6Cf8_shYXTKLpDQ3zAOGVt30z4LnE
+GET http://localhost:8080/students/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2ODEzODkxLCJleHAiOjE2ODY5MDAyOTF9.GUzFP4IuKEVJI42mY_9IXWJBuDNz4l6l3_O7Tf52se0
 
 
 
 ### Update students
-PATCH http://localhost:3001/students/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NTY4NDExLCJleHAiOjE2ODY2NTQ4MTF9.0Ld1oAXHUQVsn-6Cf8_shYXTKLpDQ3zAOGVt30z4LnE
+PATCH http://localhost:8080/students/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2ODEzODkxLCJleHAiOjE2ODY5MDAyOTF9.GUzFP4IuKEVJI42mY_9IXWJBuDNz4l6l3_O7Tf52se0
 Content-Type: application/json
 
 {
@@ -23,13 +23,13 @@ Content-Type: application/json
 
 
 ### Delete students
-DELETE http://localhost:3001/students/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NTY4NDExLCJleHAiOjE2ODY2NTQ4MTF9.0Ld1oAXHUQVsn-6Cf8_shYXTKLpDQ3zAOGVt30z4LnE
+DELETE http://localhost:8080/students/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2ODEzODkxLCJleHAiOjE2ODY5MDAyOTF9.GUzFP4IuKEVJI42mY_9IXWJBuDNz4l6l3_O7Tf52se0
 
 
 ### POST students
-POST http://localhost:3001/students
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NTY4NDExLCJleHAiOjE2ODY2NTQ4MTF9.0Ld1oAXHUQVsn-6Cf8_shYXTKLpDQ3zAOGVt30z4LnE
+POST http://localhost:8080/students
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2ODEzODkxLCJleHAiOjE2ODY5MDAyOTF9.GUzFP4IuKEVJI42mY_9IXWJBuDNz4l6l3_O7Tf52se0
 Content-Type: application/json
 
 {

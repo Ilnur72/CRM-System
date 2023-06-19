@@ -1,5 +1,5 @@
-GET http://localhost:8080/directions
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+GET http://localhost:8080/directions/?q=di
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2OTAwNDAxLCJleHAiOjE2ODY5ODY4MDF9.z-Z1Q7QYUmtA5Xpf4wr5u3l5v3RkJOqPFXCnCMCrdwI
 
 ###
 POST http://localhost:8080/directions

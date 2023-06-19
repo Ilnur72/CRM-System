@@ -1,19 +1,19 @@
 POST http://localhost:8080/groups
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg3MTYzMzk0LCJleHAiOjE2ODcyNDk3OTR9.hRelVT2cWQ2O4-K1bZjveiU8prYbIriTv0qkTjTUJuE
 Content-Type: application/json
 
 {
-  "name": "N-72",
-  "teacher_id": 2,
-  "assistent_teacher_id": 3
+  "name": "N-82",
+  "teacher_id": 5,
+  "assistent_teacher_id": 4
 }
 
 ###
-GET http://localhost:8080/groups/
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+GET http://localhost:8080/groups/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg3MTYzMzk0LCJleHAiOjE2ODcyNDk3OTR9.hRelVT2cWQ2O4-K1bZjveiU8prYbIriTv0qkTjTUJuE
 
 ###
-PATCH http://localhost:8080/groups/1
+PATCH http://localhost:8080/groups/
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
 Content-Type: application/json
 
@@ -28,12 +28,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVy
 
 //groups_students
 ###
-POST http://localhost:8080/groups/1/students/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+POST http://localhost:8080/groups/2/students/34
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2ODEzODkxLCJleHAiOjE2ODY5MDAyOTF9.GUzFP4IuKEVJI42mY_9IXWJBuDNz4l6l3_O7Tf52se0
 
 ###
-GET http://localhost:8080/groups/1/students
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NjQ2MzU0LCJleHAiOjE2ODY3MzI3NTR9.N9UFngrlxVmEHSF_qP1AOzUIfdZtzdHEJqlpDLm8TbQ
+GET http://localhost:8080/groups/2/students
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2ODEzODkxLCJleHAiOjE2ODY5MDAyOTF9.GUzFP4IuKEVJI42mY_9IXWJBuDNz4l6l3_O7Tf52se0
 
 ###
 DELETE http://localhost:8080/groups/1/students/2
