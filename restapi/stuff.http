@@ -13,7 +13,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVy
 
 ### List stuff
 GET http://localhost:8080/stuff
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2OTE5MTc3LCJleHAiOjE2ODcwMDU1Nzd9._UUTFEJPCbg49hQLIVYTlVkPSU9ub0qax4SFe8w4sYU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg3ODQ1MDE1LCJleHAiOjE2ODc5MzE0MTV9.1yOFUBWwowAODXfUA-00ZdcQFJmttrh7kn5Dj5M_3KY
 # query params: role, q
 
 ### Show single stuff

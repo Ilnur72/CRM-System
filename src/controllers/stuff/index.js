@@ -3,13 +3,14 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const db = require('../../db');
 const config = require('../../shared/config');
+const { BadRequestError, RequiredParameterError } = require('../../shared/error');
 
 /**
  * Post stuff
  * 1. Yangi stuff qo'shishni faqat admin va super_admin qila olishi kerak
  * @param {express.Request} req
  * @param {express.Response} res
- */
+ */ 
 const postStuff = async (req, res) => {
   try {
     const { first_name, last_name, role, username, password } = req.body;
@@ -113,24 +114,23 @@ const showStuff = async (req, res) => {
  * @param {express.Request} req
  * @param {express.Response} res
  */
-const loginStuff = async (req, res) => {
+const loginStuff = async (req, res, next) => {
   try {
     const { username, password } = req.body;
 
     const existing = await db('stuff').where({ username }).select('id', 'password', 'role').first();
 
     if (!existing) {
-      return res.status(401).json({
-        error: 'Username yoki password xato.',
-      });
+      // return res.status(401).json({
+      //   error: 'Username yoki password xato.',
+      // });
+      throw new BadRequestError('Username yoki password xato.')
     }
 
-    const match = await bcrypt.compare(password, existing.password)
+    const match = await bcrypt.compare(password, existing.password) 
 
     if (!match) {
-      return res.status(401).json({
-        error: 'Username yoki password xato.',
-      });
+      throw new BadRequestError('Username yoki password xato.')
     }
 
     const token = jwt.sign({ id: existing.id, role: existing.role }, config.jwt.secret, {
@@ -141,9 +141,7 @@ const loginStuff = async (req, res) => {
       token,
     });
   } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error)
   }
 };
 

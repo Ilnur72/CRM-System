@@ -64,6 +64,10 @@ const getDirections = async (req, res) => {
   }
 };
 
+/**
+ * @param {express.Request} req
+ * @param {express.Response} res
+ */
 const showDirections = async (req, res) => {
   try {
     const { id } = req.params;
